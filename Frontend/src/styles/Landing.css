@@ -1,0 +1,187 @@
+/* Reset default browser styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  /* Light mode styles */
+  body.light {
+    background-color: #ffffff;
+    color: #333;
+  }
+  
+  /* Dark mode styles */
+  body.dark {
+    background-color: #1e1e1e;
+    color: #f4f4f4;
+  }
+  
+  /* Layout and structure */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .header {
+    padding: 20px ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+  }
+  
+  /* LawAI Logo - make it more bold and highlighted */
+  .header .logo {
+    font-size: 36px; /* Increase the font size */
+    font-weight: bold; /* Bold the LawAI logo */
+    color: #007bff; /* Highlight it with a distinct color */
+    letter-spacing: 2px; /* Add letter spacing for a professional look */
+  }
+  .logo {
+    font-size: 24px; /* Adjust font size as needed */
+    font-weight: bold; /* Make it bold */
+    text-align: center; /* Center text */
+    margin: 0 auto; /* Center the logo */
+    flex-grow: 1; /* Allow it to grow and take available space */
+  }
+  
+  
+  /* Nav - move it slightly to the right */
+  .nav {
+    margin-left: 20%; /* Push navbar to the right */
+  }
+  
+  .nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .nav ul li a {
+    text-decoration: none;
+    color: inherit;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    padding: 0 15px;
+  }
+  
+  .nav ul li a:hover {
+    color: #00d4ff; /* Exciting hover color */
+  }
+  
+  /* Theme toggle icon */
+  .theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    outline: none;
+  }
+  
+  .theme-toggle .material-icons {
+    font-size: 36px;
+    color: inherit;
+    transition: transform 0.3s ease;
+  }
+  
+  .theme-toggle:hover .material-icons {
+    transform: rotate(180deg);
+    color: #007bff;
+  }
+  
+  /* Hero Section */
+  .hero {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-image: url('../images/law2.jpeg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    color: white;
+    animation: fadeInUp 1s ease-out;
+  }
+  
+  .hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    z-index: 40;
+  }
+  
+  .hero p {
+    font-size: 18px;
+    margin-bottom: 30px;
+  }
+  
+  .primary-btn {
+    background-color: white;
+    color: #007bff;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+  
+  .primary-btn:hover {
+    background-color: #00d4ff;
+    color: #fff;
+  }
+  
+  /* Footer Section */
+  .footer {
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+  }
+  
+  /* Animations */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .fade-in {
+    animation: fadeInUp 1.5s ease;
+  }
+  
+  .scale-on-hover {
+    transition: transform 0.3s ease;
+  }
+  
+  .scale-on-hover:hover {
+    transform: scale(1.05);
+  }
+  
+  .slide-in {
+    opacity: 0;
+    transform: translateX(-50px);
+    animation: slideIn 1s forwards;
+  }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
