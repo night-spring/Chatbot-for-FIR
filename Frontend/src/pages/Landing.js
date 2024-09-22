@@ -10,7 +10,7 @@ const Landing = () => {
     <div className={`landing ${theme}`}>
       <header className="header">
         <div className="container">
-          <div className="logo">Law AI</div>
+          <div className="logo">LawAI</div>
 
           {/* Dark/Light Mode Toggle Icon */}
           <div className="theme-toggle" onClick={toggleTheme}>

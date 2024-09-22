@@ -6,6 +6,7 @@ import Home from './Home';
 import Settings from './pages/Settings';
 import Login from './pages/Login'
 import Database from './pages/Database';
+import Query from './pages/Query';
 function App() {
   return (
     <ThemeProvider>
@@ -17,6 +18,7 @@ function App() {
           <Route path="/home/settings" element={<Settings />} />
           <Route path="/home/login" element={<Login />} />
           <Route path="/home/database" element={<Database />} />
+          <Route path="/home/query" element={<Query />} />
           </Routes>
         </div>
       </Router>

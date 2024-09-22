@@ -26,7 +26,7 @@ const Sidebar = () => {
       </div>
       <nav className="sidebar-nav">
         <ul>
-          <li><NavLink to="/query" activeClassName="active">Query</NavLink></li>
+          <li><NavLink to="/home/query" activeClassName="active">Query</NavLink></li>
           <li><NavLink to="/ai-fir-builder" activeClassName="active">AI FIR Builder</NavLink></li>
           <li><NavLink to="/home/database" activeClassName="active">Database</NavLink></li>
           <li><NavLink to="/home/login" activeClassName="active">Login</NavLink></li>
