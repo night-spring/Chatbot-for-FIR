@@ -7,6 +7,7 @@ import Settings from './pages/Settings';
 import Login from './pages/Login'
 import Database from './pages/Database';
 import Query from './pages/Query';
+import BareActs from './pages/BareActs';
 function App() {
   return (
     <ThemeProvider>
@@ -19,6 +20,7 @@ function App() {
           <Route path="/home/login" element={<Login />} />
           <Route path="/home/database" element={<Database />} />
           <Route path="/home/query" element={<Query />} />
+          <Route path="/bareacts" element={<BareActs />} />
           </Routes>
         </div>
       </Router>

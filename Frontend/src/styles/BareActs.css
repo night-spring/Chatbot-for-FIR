@@ -1,0 +1,97 @@
+/* Container styling */
+.bareacts-container {
+    display: flex;
+}
+
+/* Main content styling */
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Title styling */
+.bareacts-title {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+/* Search form styling */
+.bareacts-search-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+/* Search input styling */
+.bareacts-search-input {
+    flex-grow: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-right: 10px;
+    transition: border-color 0.3s ease;
+}
+
+.bareacts-search-input:focus {
+    border-color: var(--primary-color);
+}
+
+/* Search button styling */
+.bareacts-search-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.bareacts-search-btn:hover {
+    background-color: var(--primary-color-hover);
+}
+
+/* Results section */
+.bareacts-results {
+    padding: 20px;
+    background-color: var(--secondary-bg-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.bareacts-results p {
+    margin: 0;
+    color: var(--text-color);
+}
+
+/* Dark theme */
+.bareacts-container.dark .main-content,
+.bareacts-container.dark .bareacts-results {
+    background-color: #1e1e1e;
+    color: #fff;
+}
+
+.bareacts-container.dark .bareacts-search-input {
+    background-color: #2e2b2b;
+    border-color: #777;
+    color: #fff;
+}
+.bareacts-search-input.light{
+    background-color: rgb(237, 231, 231);
+    color: #1e1e1e;
+}
+.bareacts-container.dark .bareacts-search-btn {
+    background-color: #444;
+}
+
+.bareacts-container.dark .bareacts-search-btn:hover {
+    background-color: #555;
+}

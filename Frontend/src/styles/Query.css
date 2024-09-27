@@ -42,6 +42,10 @@
     margin-bottom: 30px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    /* Set a maximum height and add scroll behavior */
+    max-height: 300px; /* Adjust this value based on your design */
+    overflow-y: auto;
 }
 
 .query-response-box:hover {
@@ -49,6 +53,19 @@
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
+/* Optional: Customize the scroll bar for better design */
+.query-response-box::-webkit-scrollbar {
+    width: 8px;
+}
+
+.query-response-box::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+}
+
+.query-response-box::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+}
 /* Input Container */
 .query-input-container {
     width: 80%;

@@ -107,3 +107,48 @@
     transition: background-color 0.3s ease;
     position: relative; /* For absolute positioning of toggle */
   }
+  * Styling for the login title */
+.login-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+/* Logout button styling */
+.logout-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  justify-content: center;
+  justify-items: center;
+  margin-left: 45%;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.logout-btn:hover {
+    background-color: var(--primary-color-hover);
+    transform: translateY(-2px);
+}
+
+/* Optional theme-related styles */
+.logout-btn.dark {
+    background-color: #444;
+}
+
+.logout-btn.light {
+    background-color: #007BFF;
+}
+
+.logout-btn.dark:hover {
+    background-color: #555;
+}
+
+.logout-btn.light:hover {
+    background-color: #0056b3;
+}

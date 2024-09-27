@@ -1,12 +1,14 @@
 /* Settings.css */
 .settings-container {
     display: flex;
+    background-color: #1e1e1e;
     height: 100vh;
     transition: background-color 0.3s ease;
   }
   
   .main-content {
     flex-grow: 1;
+    background-color: #1e1e1e;
     padding: 40px;
     transition: background-color 0.3s ease;
     position: relative; /* For absolute positioning of toggle */
@@ -66,7 +68,7 @@
     border: 1px solid #ccc;
     transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
     background-color: #f4f4f4; /* Light background for light mode */
-    color: #333; /* Text color for light mode */
+    color: #1e1e1e; /* Text color for light mode */
   }
   
   .setting-select:hover {
@@ -85,7 +87,7 @@
   }
   
   .setting-select.dark {
-    background-color: #444; /* Dark background for select box */
+    background-color: #1e1e1e; /* Dark background for select box */
     color: #f4f4f4; /* Text color for select box */
     border: 1px solid #666; /* Border color for select box */
   }
