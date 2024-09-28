@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { ThemeContext } from '../ThemeContext';
 import Sidebar from '../components/Sidebar';
+import MenuBar from '../components/MenuBar'; // Import the MenuBar component
 import '../styles/Query.css';
 import { FaMicrophone } from 'react-icons/fa';
 
@@ -49,33 +50,38 @@ const Query = () => {
 
   const handleQuerySubmit = async (e) => {
     e.preventDefault();
-    
-    // Append additional context to the user's input
-    const fullQuery = `${query}. You are an AI assistant with comprehensive knowledge of the Indian Constitution, including all applicable acts and sections. Your task is to assist law enforcement officers in filing an FIR by identifying and listing all relevant acts and sections that apply to the case presented. For each act or section, provide a brief explanation of its significance and how it applies to the case. Ensure that all applicable legal provisions are mentioned to help the officer file a thorough and accurate FIR.`;
-    
+
+    const fullQuery = `${query}. You are an AI assistant with comprehensive knowledge of the Indian Constitution, including all applicable acts and sections. Your task is to assist law enforcement officers in filing an FIR by identifying and listing all relevant acts and sections that apply to the case presented. For each act or section, provide a brief explanation of its significance and how it applies to the case. Ensure that all applicable legal provisions are mentioned to help the officer file a thorough and accurate FIR.`;
+
     try {
       const response = await fetch('http://localhost:5000/api/gemini/generate', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ query: fullQuery }),  // Send full query to Gemini
+        body: JSON.stringify({ query: fullQuery }), // Send full query to Gemini
       });
-  
+
       const data = await response.json();
       setResponse(data.response || 'No response received');
     } catch (error) {
       console.error('Error fetching the response:', error);
       setResponse('Error occurred while fetching the response');
     }
-  
-    setQuery('');  // Clear the input field after submission
+
+    setQuery(''); // Clear the input field after submission
   };
-  
 
   return (
     <div className={`query-page-container ${theme}`}>
-      <Sidebar />
+      {/* Display Sidebar on larger screens, MenuBar on mobile */}
+      <div className="sidebar-container">
+        <Sidebar />
+      </div>
+      <div className="menu-bar-container">
+        <MenuBar />
+      </div>
+
       <main className="query-page-main-content">
         <div className="theme-toggle" onClick={toggleTheme}>
           <span className="material-icons">
@@ -103,11 +109,11 @@ const Query = () => {
             <FaMicrophone
               className={`query-mic-icon ${isListening ? 'listening' : ''} ${theme}`}
               onClick={handleMicClick}
-            />
-          </div>
-          <button onClick={handleQuerySubmit} className={`query-submit-btn ${theme}`}>
+            /> <button onClick={handleQuerySubmit} className={`query-submit-btn ${theme}`}>
             Enter
           </button>
+          </div>
+         
         </div>
       </main>
     </div>
