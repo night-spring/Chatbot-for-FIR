@@ -1,16 +1,18 @@
 .database-container {
     display: flex;
+    flex-direction: column; /* Stack elements vertically on smaller screens */
 }
 
 .main-content {
-    margin-left: 250px; /* Adjust based on sidebar width */
+    margin-left: 250px; /* Adjust for desktop */
     padding: 20px;
     background-color: var(--background-color); /* Ensure it adapts to theme */
+    transition: margin-left 0.3s ease; /* Smooth transition when margin changes */
 }
 
 .database-title {
     font-size: 2rem;
-    font-weight:bold;
+    font-weight: bold;
     margin-bottom: 20px;
     text-align: center; /* Center align title */
     color: var(--primary-color); /* Theme-based color */
@@ -56,9 +58,60 @@
 }
 
 .assigned {
-   color: green;
+    color: green;
 }
 
 .under-investigation {
-    color:orange;
+    color: orange;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .main-content {
+        margin-left: 0; /* Remove margin for mobile */
+        padding: 10px; /* Adjust padding */
+    }
+
+    .database-title {
+        font-size: 1.5rem; /* Smaller title font for mobile */
+    }
+
+    .case-box {
+        padding: 15px; /* Adjust padding for mobile */
+        border-radius: 8px;
+    }
+
+    .case-boxes {
+        gap: 15px; /* Adjust gap between case boxes */
+    }
+
+    .case-box h3 {
+        font-size: 1.2rem; /* Smaller heading font for mobile */
+    }
+
+    .case-box p {
+        font-size: 0.9rem; /* Smaller paragraph font for mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .database-title {
+        font-size: 1.2rem; /* Even smaller title font for very small screens */
+    }
+
+    .case-box {
+        padding: 10px; /* Further reduce padding for small screens */
+    }
+
+    .case-box h3 {
+        font-size: 1rem; /* Smaller heading font for small screens */
+    }
+
+    .case-box p {
+        font-size: 0.8rem; /* Smaller paragraph font for small screens */
+    }
+
+    .status {
+        font-size: 0.8rem; /* Adjust status font size */
+    }
 }

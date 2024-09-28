@@ -1,12 +1,25 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { ThemeContext } from '../ThemeContext'; // Import Theme Context
 import Sidebar from '../components/Sidebar'; // Import Sidebar component
+import MenuBar from '../components/MenuBar'; // Import MenuBar component
 import '../styles/BareActs.css'; // External CSS for styling
 
 const BareActs = () => {
   const { theme, toggleTheme } = useContext(ThemeContext); // Access theme and toggleTheme
   const [searchQuery, setSearchQuery] = useState('');
   const [result, setResult] = useState(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768); // Detect screen size
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -18,7 +31,9 @@ const BareActs = () => {
 
   return (
     <div className={`bareacts-container ${theme}`}>
-      <Sidebar />
+      {/* Conditional rendering based on screen size */}
+      {isMobile ? <MenuBar /> : <Sidebar />}
+
       <main className="main-content">
         {/* Light/Dark Mode Toggle */}
         <div className="theme-toggle" onClick={toggleTheme}>

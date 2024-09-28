@@ -2,6 +2,7 @@
 import React, { useContext, useState } from 'react';
 import { ThemeContext } from '../ThemeContext'; // Import Theme Context
 import Sidebar from '../components/Sidebar'; // Import Sidebar component
+import MenuBar from '../components/MenuBar'; // Import MenuBar component
 import '../styles/Settings.css'; // External CSS for styling
 
 const Settings = () => {
@@ -19,7 +20,9 @@ const Settings = () => {
 
   return (
     <div className={`settings-container ${theme}`}>
+      {/* Conditionally render Sidebar or MenuBar based on screen size */}
       <Sidebar />
+      <MenuBar /> {/* Add MenuBar component for mobile */}
       <main className="main-content">
         <div className="theme-toggle" onClick={toggleTheme}>
           <span className="material-icons">

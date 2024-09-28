@@ -33,8 +33,7 @@
 
 /* Response Box Styling */
 .query-response-box {
-    width: 80%;
-    max-width: 600px;
+    width: 95%;
     padding: 20px;
     background-color: var(--query-response-bg);
     color: var(--query-response-text);
@@ -44,7 +43,8 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     
     /* Set a maximum height and add scroll behavior */
-    max-height: 300px; /* Adjust this value based on your design */
+    max-height: 600px; /* Adjust this value based on your design */
+    height: 300px;
     overflow-y: auto;
 }
 
@@ -68,8 +68,7 @@
 }
 /* Input Container */
 .query-input-container {
-    width: 80%;
-    max-width: 600px;
+    width: 95%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -114,7 +113,8 @@
 
 /* Submit Button Styling */
 .query-submit-btn {
-    padding: 10px 20px;
+    padding: 15px 30px;
+    margin-left: 20px;
     border: none;
     border-radius: 8px;
     background-color: var(--query-btn-bg);
@@ -158,4 +158,79 @@
     --query-btn-bg: #3ccd1b;
     --query-btn-text: #fff;
     --query-btn-hover-bg: #208a08;
+}
+/* Add media queries for responsiveness */
+@media (max-width: 768px) {
+    .sidebar-container {
+      display: none; /* Hide sidebar on mobile */
+    }
+  
+    .menu-bar-container {
+      display: block; /* Show menu bar on mobile */
+    }
+  }
+  
+  @media (min-width: 769px) {
+    .menu-bar-container {
+      display: none; /* Hide menu bar on larger screens */
+    }
+  }
+  /* Add media queries for responsiveness */
+@media (max-width: 768px) {
+    .query-page-container {
+        flex-direction: column; /* Stack elements vertically on mobile */
+        height: auto; /* Allow height to adjust based on content */
+    }
+
+    .query-page-main-content {
+        margin-left: 0; /* Remove left margin on mobile */
+        padding: 20px; /* Reduce padding on mobile */
+    }
+
+    .query-page-title {
+        font-size: 1.5rem; /* Smaller font size for titles on mobile */
+    }
+
+    .query-response-box {
+        width: 90%; /* Make response box wider on mobile */
+        padding: 15px; /* Reduce padding in response box */
+        max-height: 200px; /* Reduce max height for mobile */
+    }
+
+    .query-input-container {
+        width: 90%; /* Full width input container on mobile */
+    }
+
+    .query-input-box {
+        padding: 10px; /* Reduce padding in input box */
+    }
+
+    .query-text-input {
+        font-size: 1rem; /* Smaller font size for text input */
+    }
+
+    .query-submit-btn {
+        font-size: 1rem; /* Smaller button font size */
+        padding: 8px 16px; /* Adjust button padding */
+    }
+
+    .query-mic-icon {
+        font-size: 1.2rem; /* Smaller microphone icon */
+    }
+
+    /* Hide theme toggle button on mobile to save space */
+    .query-page-theme-toggle {
+        display: none;
+    }
+
+    /* Optional: Adjust scrollbar for mobile */
+    .query-response-box::-webkit-scrollbar {
+        width: 5px; /* Smaller scrollbar for mobile */
+    }
+}
+
+@media (min-width: 769px) {
+    .menu-bar-container {
+        display: none; /* Hide menu bar on larger screens */
+    }
 }

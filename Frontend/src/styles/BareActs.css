@@ -84,14 +84,24 @@
     border-color: #777;
     color: #fff;
 }
-.bareacts-search-input.light{
+
+.bareacts-search-input.light {
     background-color: rgb(237, 231, 231);
     color: #1e1e1e;
 }
+
 .bareacts-container.dark .bareacts-search-btn {
     background-color: #444;
 }
 
 .bareacts-container.dark .bareacts-search-btn:hover {
     background-color: #555;
+}
+
+/* Mobile responsiveness adjustments */
+@media (max-width: 768px) {
+    .main-content {
+        padding: 20px 10px; /* Reduce padding on the right */
+        margin-left: 25px; /* Shift content slightly to the left */
+    }
 }

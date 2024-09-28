@@ -25,7 +25,7 @@ const Landing = () => {
         <div className="container">
           <h1 className="fade-in">Empowering Law Enforcement with AI</h1>
           <p className="fade-in">Instant access to accurate legal information for writing flawless FIRs.</p>
-          <a href="/home" className="btn primary-btn scale-on-hover">Get Started</a>
+          <a href="/home/query" className="btn primary-btn scale-on-hover">Get Started</a>
         </div>
       </section>
 

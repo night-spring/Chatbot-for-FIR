@@ -116,4 +116,22 @@
   .setting-select.light:hover {
     border-color: #007bff; /* Border color on hover in light mode */
   }
-  
+  /* Hide Sidebar on mobile */
+.sidebar {
+  display: block; /* Default display for desktop */
+}
+
+.menu-bar {
+  display: none; /* Default display for mobile */
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .sidebar {
+    display: none; /* Hide Sidebar on mobile */
+  }
+
+  .menu-bar {
+    display: block; /* Show MenuBar on mobile */
+  }
+}

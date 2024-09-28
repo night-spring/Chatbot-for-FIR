@@ -152,3 +152,77 @@
 .logout-btn.light:hover {
     background-color: #0056b3;
 }
+/* Media Queries for Mobile Responsiveness */
+@media (max-width: 768px) {
+  .login-container {
+    flex-direction: column; /* Stack sidebar and content */
+  }
+
+  .login-main-content {
+    padding: 20px; /* Reduced padding for smaller screens */
+  }
+
+  .login-title {
+    font-size: 1.5rem; /* Smaller title for mobile */
+  }
+
+  .login-form {
+    max-width: 90%; /* Allow form to take more width on mobile */
+    padding: 15px; /* Reduced padding */
+  }
+
+  .login-form-item {
+    margin-bottom: 10px; /* Reduced spacing */
+  }
+
+  .login-btn {
+    padding: 12px; /* Slightly larger button padding */
+    font-size: 14px; /* Smaller font size */
+  }
+
+  .logout-btn {
+    padding: 8px 16px; /* Adjust padding for logout button */
+    font-size: 14px; /* Smaller font size */
+  }
+
+  .login-toggle-text {
+    margin-left: 0; /* Remove left margin on mobile */
+  }
+}
+/* Hide Sidebar on mobile */
+.sidebar {
+  display: block; /* Default display for desktop */
+}
+
+.menu-bar {
+  display: none; /* Default display for mobile */
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .sidebar {
+    display: none; /* Hide Sidebar on mobile */
+  }
+
+  .menu-bar {
+    display: block; /* Show MenuBar on mobile */
+  }
+}
+.user-details {
+  margin: 20px 0;
+  background-color: var(--background-secondary); /* Adjust based on theme */
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.user-details p {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.logout-btn {
+  margin-top: 20px;
+  font-size: 18px;
+  padding: 10px 20px;
+}
