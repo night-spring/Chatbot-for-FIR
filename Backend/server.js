@@ -2,29 +2,33 @@ const express = require('express');
 const cors = require('cors');
 const { MongoClient } = require('mongodb');
 
-const app = express();
-app.use(cors());
+const serverRouter = express.Router(); // Use Router
+serverRouter.use(cors());
 
 const uri = "mongodb+srv://night:debojit80@fir.trwcj.mongodb.net/?retryWrites=true&w=majority&appName=FIR";
 const client = new MongoClient(uri);
-app.get('/', (req, res) => {
-    res.send('Welcome to the Case Management API');
+
+// MongoDB Routes
+serverRouter.get('/', (req, res) => {
+  res.send('Welcome to the Case Management API');
 });
 
-app.get('/cases', async (req, res) => {
+serverRouter.get('/cases', async (req, res) => {
     try {
-        await client.connect();
-        const database = client.db('FIR');
-        const collection = database.collection('case');
-
-        const cases = await collection.find({}).toArray();
-        res.json(cases);
+      await client.connect();
+      console.log('Connected successfully to MongoDB');
+      const database = client.db('FIR');
+      const collection = database.collection('case');
+  
+      const cases = await collection.find({}).toArray();
+      res.json(cases);
     } catch (err) {
-        console.error(err);
-        res.status(500).send('Error fetching cases from database');
+      console.error('Error connecting to MongoDB:', err.message || err);
+      res.status(500).send('Error fetching cases from database');
+    } finally {
+      await client.close(); // Close the connection after the request
     }
-});
+  });
+  
 
-app.listen(5000, () => {
-    console.log('Server is running on http://localhost:5000');
-});
+module.exports = serverRouter; // Export the router

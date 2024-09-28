@@ -11,7 +11,7 @@ const Database = () => {
   const [cases, setCases] = useState([]); // Initialize with an empty array
 
   useEffect(() => {
-    fetch('http://localhost:5000/cases')
+    fetch('http://localhost:5000/api/server/cases')
       .then((response) => response.json())
       .then((data) => setCases(data)) // Step 2: Update state with fetched data
       .catch((error) => console.error('Error fetching cases:', error));

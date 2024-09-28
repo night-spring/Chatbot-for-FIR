@@ -54,7 +54,7 @@ const Query = () => {
     const fullQuery = `${query}. You are an AI assistant with comprehensive knowledge of the Indian Constitution, including all applicable acts and sections. Your task is to assist law enforcement officers in filing an FIR by identifying and listing all relevant acts and sections that apply to the case presented. For each act or section, provide a brief explanation of its significance and how it applies to the case. Ensure that all applicable legal provisions are mentioned to help the officer file a thorough and accurate FIR.`;
     
     try {
-      const response = await fetch('http://localhost:3001/api/generate', {
+      const response = await fetch('http://localhost:5000/api/gemini/generate', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
