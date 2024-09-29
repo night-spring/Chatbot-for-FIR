@@ -107,7 +107,7 @@
     transition: background-color 0.3s ease;
     position: relative; /* For absolute positioning of toggle */
   }
-  * Styling for the login title */
+  * Styling for the login title *
 .login-title {
     font-size: 24px;
     font-weight: 600;
