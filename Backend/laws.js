@@ -15,13 +15,15 @@ fs.readFile('./laws.json', 'utf8', (err, data) => {
 
 // Welcome route for the server - Show all laws data
 router.get('/', (req, res) => {
+  console.log('Fetching all laws data...');
   res.status(200).json(laws); // Send the laws data as JSON
 });
 
 // Search for laws based on a keyword
 router.get('/laws/search', (req, res) => {
   const keyword = req.query.keyword ? req.query.keyword.toLowerCase() : '';
-  
+  console.log(`Searching for laws with keyword: ${keyword}`);
+
   if (!keyword) {
     return res.status(400).json({ message: 'Keyword query parameter is required.' });
   }
@@ -38,5 +40,6 @@ router.get('/laws/search', (req, res) => {
     res.status(404).json({ message: 'No laws found for the given keyword.' });
   }
 });
+
 
 module.exports = router;
