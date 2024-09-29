@@ -46,11 +46,17 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     
     /* Set a maximum height and add scroll behavior */
-    max-height: 500px; /* Adjust this value based on your design */
+    max-height: 600px; /* Adjust this value based on your design */
     min-height: 400px;
     overflow-y: auto;
 }
-
+.query-response-box pre {
+    white-space: pre-wrap; /* Ensure preformatted text wraps within the box */
+    word-wrap: break-word; /* Break long words */
+    margin: 0; /* Remove margin for better spacing */
+    font-family: inherit; /* Ensure consistent font */
+    font-size: 1rem; /* Adjust font size */
+  }
 .query-response-box:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
