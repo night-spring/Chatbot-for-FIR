@@ -20,8 +20,12 @@ fs.readFile(lawsFilePath, 'utf8', (err, data) => {
   }
 });
 
-// Welcome route for the server - Show all laws data
 router.get('/', (req, res) => {
+  res.send('Welcome to the LAWS.');
+});
+
+// Welcome route for the server - Show all laws data
+router.get('/acts', (req, res) => {
   console.log('Fetching all laws data...');
   res.status(200).json(laws); // Send the laws data as JSON
 });
