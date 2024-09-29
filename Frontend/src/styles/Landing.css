@@ -184,4 +184,31 @@
       transform: translateX(0);
     }
   }
+  .download-btn-container {
+    margin-top: 0px;
+    display: flex;
+    justify-content: right;
+  }
+  
+  .download-btn {
+    background-color: green; /* Set the initial color */
+    color: var(--btn-text-color);
+    padding: 10px 20px;
+    border: none;
+    margin-right: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 0;
+    /* Remove the transition and hover effects */
+    transition: none; /* No transition */
+  }
+  
+  .download-btn:hover {
+    /* No background color change on hover */
+    background-color: green; /* Same as initial color */
+  }
+  
+  .download-btn:active {
+    background-color: var(--btn-active-color); /* Only active state can be used */
+  }
   
