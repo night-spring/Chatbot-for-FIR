@@ -1,16 +1,23 @@
 const express = require('express');
 const router = express.Router();
 const fs = require('fs');
+const path = require('path');
 
 // Load laws data from laws.json
 let laws = [];
 
-fs.readFile('./laws.json', 'utf8', (err, data) => {
+const lawsFilePath = path.join(__dirname, 'laws.json');
+
+fs.readFile(lawsFilePath, 'utf8', (err, data) => {
   if (err) {
     console.error('Error reading laws.json:', err);
     return;
   }
-  laws = JSON.parse(data); // Parse the JSON data into an array of laws
+  try {
+    laws = JSON.parse(data); // Parse the JSON data into an array of laws
+  } catch (parseError) {
+    console.error('Error parsing laws.json:', parseError);
+  }
 });
 
 // Welcome route for the server - Show all laws data
@@ -20,7 +27,7 @@ router.get('/', (req, res) => {
 });
 
 // Search for laws based on a keyword
-router.get('/laws/search', (req, res) => {
+router.get('/search', (req, res) => {
   const keyword = req.query.keyword ? req.query.keyword.toLowerCase() : '';
   console.log(`Searching for laws with keyword: ${keyword}`);
 
@@ -29,7 +36,7 @@ router.get('/laws/search', (req, res) => {
   }
 
   const results = laws.filter(law => 
-    law.keywords.includes(keyword) || 
+    law.keywords && law.keywords.includes(keyword) || 
     law.title.toLowerCase().includes(keyword) || 
     law.description.toLowerCase().includes(keyword)
   );
@@ -40,6 +47,5 @@ router.get('/laws/search', (req, res) => {
     res.status(404).json({ message: 'No laws found for the given keyword.' });
   }
 });
-
 
 module.exports = router;
