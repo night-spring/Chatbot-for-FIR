@@ -8,21 +8,21 @@ const KeyFeatures = ({ theme }) => {
         <h2 className={`section-title ${theme}`}>Key Features</h2>
         <div className="features-container">
           <div className={`feature-card scale-on-hover ${theme}`}>
-            <h3 className="feature-title">AI-Powered</h3>
+            <h3 className="feature-title">NLP & Legal Database</h3>
             <p className={`feature-description ${theme}`}>
-              Automatically suggests relevant sections and acts based on the input complaint.
+            Interprets incident details and connects to legal databases for relevant laws.​
             </p>
           </div>
           <div className={`feature-card scale-on-hover ${theme}`}>
-            <h3 className="feature-title">Reliable</h3>
+            <h3 className="feature-title">Unified Platform</h3>
             <p className={`feature-description ${theme}`}>
-              Provides reliable legal information to reduce mistakes in FIRs.
+            Centralized repository of updated ​laws with easy search by act, section, or keyword.​
             </p>
           </div>
           <div className={`feature-card scale-on-hover ${theme}`}>
-            <h3 className="feature-title">Easy to Use</h3>
+            <h3 className="feature-title">Available on all platforms</h3>
             <p className={`feature-description ${theme}`}>
-              Simple and intuitive interface that any officer can easily use.
+            Web, Android, iOS, Windows, Mac for seamless access across devices.
             </p>
           </div>
         </div>

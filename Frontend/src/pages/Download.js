@@ -13,7 +13,7 @@ const Download = () => {
       </p>
 
       <div className="download-page__options">
-        <a href="/path/to/android-apk-file.apk" download className="download-page__btn" id='android'>
+        <a href="https://drive.google.com/uc?export=download&id=1lPszpovE10_TFEdpZn9Ufbg13sfMSxAz" download className="download-page__btn" id='android'>
           <img src="https://pngimg.com/d/android_logo_PNG2.png" alt="Android" className="download-page__logo" />
           Download APK for Android
         </a>
