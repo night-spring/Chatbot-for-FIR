@@ -1,13 +1,14 @@
 const express = require('express');
 const cors = require('cors');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
+require('dotenv').config();  // Load environment variables
 
 const geminiRouter = express.Router(); // Use Router
 geminiRouter.use(cors());
 geminiRouter.use(express.json());
 
 // API Key for Google Generative AI
-const API_KEY = "AIzaSyDBPNZCzzU1Y31OG7xQkE9jL4Ey2pJzpMw";
+const API_KEY = process.env.api_key;  // Ensure it fetches the API key correctly
 const genAI = new GoogleGenerativeAI(API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 

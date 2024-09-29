@@ -5,7 +5,8 @@ const { MongoClient } = require('mongodb');
 const serverRouter = express.Router(); // Use Router
 serverRouter.use(cors());
 
-const uri = "mongodb+srv://night:debojit80@fir.trwcj.mongodb.net/?retryWrites=true&w=majority&appName=FIR";
+require('dotenv').config();
+const uri = process.env.mongouri;
 const client = new MongoClient(uri);
 
 // MongoDB Routes

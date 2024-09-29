@@ -93,7 +93,7 @@ const Query = () => {
 
         {/* Response Field */}
         <div className={`query-response-box ${theme}`}>
-          {response}
+          <pre>{response}</pre>
         </div>
 
         {/* Input Section */}
