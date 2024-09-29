@@ -17,7 +17,7 @@ const BareActs = () => {
   useEffect(() => {
     const fetchLaws = async () => {
       try {
-        const response = await axios.get('https://chatbot-for-fir-backend.vercel.app/api/laws/'); // Fetch all laws
+        const response = await axios.get('https://chatbot-for-fir-backend.vercel.app/api/laws/acts'); // Fetch all laws
         setLaws(response.data); // Set the fetched laws data
       } catch (err) {
         console.error('Error fetching laws:', err);
