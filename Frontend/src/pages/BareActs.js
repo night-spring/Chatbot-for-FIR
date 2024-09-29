@@ -101,7 +101,7 @@ const BareActs = () => {
 
         {/* Display all laws here */}
         <div className={`all-laws ${theme}`}>
-          <h3>All Laws</h3>
+          <h3>Bare Acts</h3>
           {laws.length > 0 ? (
             laws.map((law) => (
               <div key={law.section}>

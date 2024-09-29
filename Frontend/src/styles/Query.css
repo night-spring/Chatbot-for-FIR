@@ -12,6 +12,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    overflow-x: hidden;
     background-color: var(--query-background-color);
     transition: background-color 0.3s ease;
 }
@@ -34,7 +35,9 @@
 /* Response Box Styling */
 .query-response-box {
     width: 95%;
+    max-width: 100%;
     padding: 20px;
+    overflow-x: hidden;
     background-color: var(--query-response-bg);
     color: var(--query-response-text);
     border-radius: 8px;
@@ -43,8 +46,8 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     
     /* Set a maximum height and add scroll behavior */
-    max-height: 600px; /* Adjust this value based on your design */
-    height: 300px;
+    max-height: 500px; /* Adjust this value based on your design */
+    min-height: 400px;
     overflow-y: auto;
 }
 
@@ -135,9 +138,9 @@
 :root {
     --query-background-color: #ffffff;
     --query-text-color: #333;
-    --query-response-bg: #fff;
+    --query-response-bg: #e4e4e4;
     --query-response-text: #333;
-    --query-input-bg: #fff;
+    --query-input-bg: #e3e3e3;
     --query-input-text-color: #333;
     --query-mic-color: #007bff;
     --query-mic-hover-color: #0056b3;

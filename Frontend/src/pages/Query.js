@@ -63,13 +63,17 @@ const Query = () => {
       });
 
       const data = await response.json();
-      setResponse(data.response || 'No response received');
+      setResponse(parseMarkdownToHTML(data.response || 'No response received'));
     } catch (error) {
       console.error('Error fetching the response:', error);
       setResponse('Error occurred while fetching the response');
     }
 
     setQuery(''); // Clear the input field after submission
+  };
+
+  const parseMarkdownToHTML = (text) => {
+    return text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
   };
 
   return (
@@ -93,7 +97,7 @@ const Query = () => {
 
         {/* Response Field */}
         <div className={`query-response-box ${theme}`}>
-          <pre>{response}</pre>
+          <pre dangerouslySetInnerHTML={{ __html: response }} />
         </div>
 
         {/* Input Section */}
@@ -109,11 +113,11 @@ const Query = () => {
             <FaMicrophone
               className={`query-mic-icon ${isListening ? 'listening' : ''} ${theme}`}
               onClick={handleMicClick}
-            /> <button onClick={handleQuerySubmit} className={`query-submit-btn ${theme}`}>
-            Enter
-          </button>
+            />
+            <button onClick={handleQuerySubmit} className={`query-submit-btn ${theme}`}>
+              Enter
+            </button>
           </div>
-         
         </div>
       </main>
     </div>
