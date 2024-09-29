@@ -8,6 +8,7 @@ import Login from './pages/Login';
 import Database from './pages/Database';
 import Query from './pages/Query';
 import BareActs from './pages/BareActs';
+import Download from './pages/Download';
 function App() {
   return (
     <ThemeProvider>
@@ -21,6 +22,7 @@ function App() {
             <Route path="/home/database" element={<Database />} />
             <Route path="/home/query" element={<Query />} />
             <Route path="/bareacts" element={<BareActs />} />
+            <Route path="/download" element={<Download />} />
             {/* Add a catch-all route for 404 handling */}
             <Route path="*" element={<div>404 Not Found</div>} />
           </Routes>

@@ -1,10 +1,17 @@
 import React, { useContext } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import { ThemeContext } from '../ThemeContext'; // Import Theme Context
 import KeyFeatures from '../components/KeyFeatures'; // Import KeyFeatures component
 import '../styles/Landing.css'; // External CSS for styling
 
 const Landing = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
+  const navigate = useNavigate(); // Initialize the useNavigate hook
+
+  const handleDownload = () => {
+    // Navigate to the download page
+    navigate('/download');
+  };
 
   return (
     <div className={`landing ${theme}`}>
@@ -12,9 +19,19 @@ const Landing = () => {
         <div className="container">
           <div className="logo">LawAI</div>
 
-          {/* Dark/Light Mode Toggle Icon */}
-          <div className="theme-toggle" onClick={toggleTheme}>
-            <span className="material-icons">
+          {/* Dark/Light Mode Toggle Icon with Download Button */}
+          <div className="theme-toggle">
+            {/* Download Icon */}
+            <span 
+              className="material-icons download-icon" 
+              onClick={handleDownload} 
+              style={{ cursor: 'pointer', marginRight: '15px' }} // Add spacing between icons
+            >
+              file_download
+            </span>
+            
+            {/* Dark/Light Mode Toggle */}
+            <span className="material-icons" onClick={toggleTheme} style={{ cursor: 'pointer' }}>
               {theme === 'light' ? 'dark_mode' : 'light_mode'}
             </span>
           </div>

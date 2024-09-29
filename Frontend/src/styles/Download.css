@@ -1,0 +1,118 @@
+/* Download.css */
+
+/* General Styles */
+.download-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Full viewport height */
+    padding: 20px;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+/* Title Styles */
+.download-page__title {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Description Styles */
+.download-page__description {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+/* Options Container */
+.download-page__options {
+    display: flex;
+    flex-direction: column; /* Stack the options vertically */
+    align-items: center;
+    margin-top: 20px;
+    gap: 5px; /* Space between buttons */
+}
+
+/* Button Styles */
+.download-page__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the content */
+    background-color: #007bff; /* Default button color */
+    color: white; /* Button text color */
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 18px;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Add transform for hover effect */
+    width: 250px; /* Set a consistent width */
+}
+
+/* Button Hover Effect */
+.download-page__btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-2px); /* Lift effect */
+}
+
+/* Logo Styles */
+.download-page__logo {
+    width: 24px; /* Logo width */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 10px; /* Space between logo and text */
+}
+
+/* Dark Mode Styles */
+.download-page.dark {
+    background-color: #1e1e1e; /* Dark background */
+    color: #f4f4f4; /* Light text */
+}
+
+.download-page.dark .download-page__btn {
+    background-color: #7c7c7c; /* Button color */
+}
+
+.download-page.dark .download-page__btn:hover {
+    background-color: #146510; /* Darker blue on hover */
+}
+
+/* Light Mode Styles */
+.download-page.light {
+    background-color: #ffffff; /* Light background */
+    color: #333; /* Dark text */
+}
+
+.download-page.light .download-page__btn {
+    background-color: #c6c5c5; /* Button color */
+}
+
+.download-page.light .download-page__btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Additional Styles for Responsive Design */
+@media (max-width: 768px) {
+    .download-page__btn {
+        width: 90%; /* Full width on smaller screens */
+    }
+}
+.coming-soon {
+    font-size: 16px;
+    color: #ff6b6b; /* Color to grab attention */
+    margin-top: 5px; /* Space above the text */
+    animation: blink 2.5s infinite; /* Add blinking animation */
+}
+
+/* Blinking Animation */
+@keyframes blink {
+    0%, 100% {
+        opacity: 1; /* Fully visible */
+    }
+    50% {
+        opacity: 0; /* Fully transparent */
+    }
+}
+#android{
+    margin-bottom: 25px;
+}
