@@ -15,7 +15,7 @@ const Database = () => {
 
   // Effect to fetch data
   useEffect(() => {
-    fetch('http://localhost:5000/api/server/cases')
+    fetch('https://chatbot-for-fir-backend.vercel.app/api/server/cases')
       .then((response) => response.json())
       .then((data) => setCases(data))
       .catch((error) => console.error('Error fetching cases:', error));
