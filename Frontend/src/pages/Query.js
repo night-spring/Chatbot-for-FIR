@@ -1,7 +1,7 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect, useMemo } from 'react';
 import { ThemeContext } from '../ThemeContext';
 import Sidebar from '../components/Sidebar';
-import MenuBar from '../components/MenuBar'; // Import the MenuBar component
+import MenuBar from '../components/MenuBar';
 import '../styles/Query.css';
 import { FaMicrophone } from 'react-icons/fa';
 
@@ -13,11 +13,15 @@ const Query = () => {
 
   // Web Speech API initialization
   const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-  const recognition = new SpeechRecognition();
 
-  recognition.continuous = false;
-  recognition.interimResults = false;
-  recognition.lang = 'en-US';
+  // Wrap the initialization in useMemo to prevent re-creation on every render
+  const recognition = useMemo(() => {
+    const recog = new SpeechRecognition();
+    recog.continuous = false;
+    recog.interimResults = false;
+    recog.lang = 'en-US';
+    return recog;
+  }, [SpeechRecognition]);
 
   useEffect(() => {
     recognition.onresult = (event) => {
@@ -78,7 +82,6 @@ const Query = () => {
 
   return (
     <div className={`query-page-container ${theme}`}>
-      {/* Display Sidebar on larger screens, MenuBar on mobile */}
       <div className="sidebar-container">
         <Sidebar />
       </div>
@@ -95,12 +98,10 @@ const Query = () => {
 
         <h2 className="query-page-title">Ask a Query</h2>
 
-        {/* Response Field */}
         <div className={`query-response-box ${theme}`}>
           <pre dangerouslySetInnerHTML={{ __html: response }} />
         </div>
 
-        {/* Input Section */}
         <div className="query-input-container">
           <div className={`query-input-box ${theme}`}>
             <input
