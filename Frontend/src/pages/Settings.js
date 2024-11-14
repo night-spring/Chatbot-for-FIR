@@ -1,12 +1,9 @@
-// Settings.js
-import React, { useContext, useState } from 'react';
-import { ThemeContext } from '../ThemeContext'; // Import Theme Context
+import React, { useState } from 'react';
 import Sidebar from '../components/Sidebar'; // Import Sidebar component
 import MenuBar from '../components/MenuBar'; // Import MenuBar component
-import '../styles/Settings.css'; // External CSS for styling
+import Footer from '../components/Footer'; // Import Footer component
 
 const Settings = () => {
-  const { theme, toggleTheme } = useContext(ThemeContext);
   const [notifications, setNotifications] = useState(true);
   const [language, setLanguage] = useState('English');
 
@@ -19,38 +16,33 @@ const Settings = () => {
   };
 
   return (
-    <div className={`settings-container ${theme}`}>
+    <div className="settings-container min-h-screen flex flex-col">
       {/* Conditionally render Sidebar or MenuBar based on screen size */}
       <Sidebar />
-      <MenuBar /> {/* Add MenuBar component for mobile */}
-      <main className="main-content">
-        <div className="theme-toggle" onClick={toggleTheme}>
-          <span className="material-icons">
-            {theme === 'light' ? 'dark_mode' : 'light_mode'}
-          </span>
-        </div>
-        <h2 className="settings-title">Settings</h2>
-        <p className="settings-description">Customize your application settings here.</p>
 
-        <div className="setting-item">
-          <label className="setting-label">
+      <main className="main-content flex-grow ">
+        <h2 className="settings-title text-4xl font-semibold text-blue-900 text-center mb-8 mt-14">Settings</h2>
+        <p className="settings-description mb-8">Customize your application settings here.</p>
+
+        <div className="setting-item mb-6">
+          <label className="setting-label flex items-center space-x-2">
             <input
               type="checkbox"
               checked={notifications}
               onChange={handleNotificationsChange}
               className="setting-checkbox"
             />
-            Enable Notifications
+            <span>Enable Notifications</span>
           </label>
         </div>
 
-        <div className="setting-item">
-          <label htmlFor="language" className="setting-label">Language</label>
+        <div className="setting-item mb-6">
+          <label htmlFor="language" className="setting-label block text-gray-700">Language</label>
           <select
             id="language"
             value={language}
             onChange={handleLanguageChange}
-            className="setting-select"
+            className="setting-select w-full p-2 border border-gray-300 rounded-lg"
           >
             <option value="English">English</option>
             <option value="Spanish">Spanish</option>
@@ -59,15 +51,17 @@ const Settings = () => {
           </select>
         </div>
 
-        <div className="setting-item">
-          <label htmlFor="case-templates" className="setting-label">Default Case Templates</label>
-          <select id="case-templates" className="setting-select">
+        <div className="setting-item mb-6">
+          <label htmlFor="case-templates" className="setting-label block text-gray-700">Default Case Templates</label>
+          <select id="case-templates" className="setting-select w-full p-2 border border-gray-300 rounded-lg">
             <option value="template1">Template 1</option>
             <option value="template2">Template 2</option>
             {/* Add more templates as needed */}
           </select>
         </div>
       </main>
+
+      <Footer />
     </div>
   );
 };

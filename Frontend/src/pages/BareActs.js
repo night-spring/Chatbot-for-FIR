@@ -1,12 +1,11 @@
-import React, { useState, useContext, useEffect } from 'react';
-import { ThemeContext } from '../ThemeContext'; // Import Theme Context
+import React, { useState, useEffect } from 'react';
 import Sidebar from '../components/Sidebar'; // Import Sidebar component
 import MenuBar from '../components/MenuBar'; // Import MenuBar component
 import '../styles/BareActs.css'; // External CSS for styling
 import axios from 'axios'; // Import axios for making API requests
+import Footer from '../components/Footer'; // Import Footer component
 
 const BareActs = () => {
-  const { theme, toggleTheme } = useContext(ThemeContext); // Access theme and toggleTheme
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResult, setSearchResult] = useState(null);
   const [loading, setLoading] = useState(false); // Loading state
@@ -58,32 +57,32 @@ const BareActs = () => {
   };
 
   return (
-    <div className={`bareacts-container ${theme}`}>
+    <div className="bareacts-container min-h-screen flex flex-col">
       {/* Conditional rendering based on screen size */}
       {isMobile ? <MenuBar /> : <Sidebar />}
 
-      <main className="main-content">
-        {/* Light/Dark Mode Toggle */}
-        <div className="theme-toggle" onClick={toggleTheme}>
-          <span className="material-icons">
-            {theme === 'light' ? 'dark_mode' : 'light_mode'}
-          </span>
-        </div>
-        <h2 className="bareacts-title">Bare Acts</h2>
-        <form onSubmit={handleSearch} className="bareacts-search-form">
+      <main className="main-content flex-grow">
+        <h2 className="bareacts-title text-4xl font-semibold text-blue-900 text-center mb-8 mt-8">Bare Acts Database</h2>
+        <form onSubmit={handleSearch} className="bareacts-search-form flex flex-col items-center gap-4 sm:flex-row sm:gap-6 mb-10">
+          {/* Search Input */}
           <input
             type="text"
             placeholder="Search for a Bare Act"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)} // Update search query
-            className={`bareacts-search-input ${theme}`}
+            className="bareacts-search-input w-full sm:w-96 p-3 text-lg rounded-lg border-2 bg-white text-gray-800 border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
           />
-          <button type="submit" className={`bareacts-search-btn primary-btn ${theme}`}>
+                    
+          {/* Search Button */}
+          <button
+            type="submit"
+            className="bareacts-search-btn p-4 rounded-lg bg-blue-600 text-white font-medium shadow-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 ease-in-out"
+          >
             Search
           </button>
         </form>
-        
-        <div className={`bareacts-results ${theme}`}>
+
+        <div className="bareacts-results">
           {loading && <p>Loading results...</p>}
           {error && <p className="error-message">{error}</p>}
           {searchResult && searchResult.length > 0 ? (
@@ -100,7 +99,7 @@ const BareActs = () => {
         </div>
 
         {/* Display all laws here */}
-        <div className={`all-laws ${theme}`}>
+        <div className="all-laws">
           <h3>Bare Acts</h3>
           {laws.length > 0 ? (
             laws.map((law) => (
@@ -115,6 +114,9 @@ const BareActs = () => {
           )}
         </div>
       </main>
+
+      {/* Footer component */}
+      <Footer />
     </div>
   );
 };

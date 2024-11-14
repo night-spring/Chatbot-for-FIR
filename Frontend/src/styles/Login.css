@@ -1,25 +1,42 @@
-.login-container {
-    display: flex;
+/* Global reset */
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
   }
   
-  .login-main-content {
-    flex: 1;
-    padding: 40px auto auto 80px;
+  .login-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    padding: 0;
+    
+      margin: 0;
+      padding: 0;
+    
+  }
+  .main-content {
+   flex-grow: 1;
+   padding: 0 40px; /* Only left and right padding */
+   transition: background-color 0.3s ease;
+   position: relative;
   }
   
-  .login-theme-toggle {
-    cursor: pointer;
-    margin-bottom: 20px;
+  /* Navbar Styling */
+  .navbar {
+   margin: 0;
+   padding: 0;
   }
   
+  /* Other styles */
   .login-title {
-    font-size: 2rem;
-    margin: 20px auto; /* Centers the element horizontally */
-    text-align: center; /* Centers text within the element */
-}
+   font-size: 2rem;
+   margin: 0;
+  padding: 0;
+   text-align: center;
+  }
+  
+  /* Rest of your existing styles */
+  
 .login-form {
     width: 100%;
     max-width: 400px;
